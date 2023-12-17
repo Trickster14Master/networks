@@ -1,0 +1,18 @@
+docker images - воводит все образы доккера 
+docker image rm - удалить образ 
+docker ps - запущенные докеры сейчас 
+docker ps -a - запущенные докеры когдабытонибыло 
+docker build -t coffe . - создаём docker образ в текущей деректории 
+docker container rm cof - удаление контейнера с именем cof
+
+docker run --name cof coffe - запускаем контейнер с именем cof с помощью образа coffe
+docker run --name cof -p 8000:8000 -d coffe - запускаем docker с проброской портов
+
+sudo docker-compose build - создаём браз docker-compose
+sudo docker-compose up - запускаем docker-compose
+
+apt install python3-pip
+
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh ./get-docker.sh 
+sudo apt-get install docker-compose

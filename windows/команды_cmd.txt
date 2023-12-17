@@ -1,0 +1,52 @@
+powercfg/energy - проверка энерго потребления
+powercfg/requests - проверяет есть ли процессы которые не дают уйти в сон 
+
+sfc/scannow - узнать о целосности ОС
+востановление через sfc с помощью среды востановления
+	diskpart - управление ЖД
+	list volume - узнать какие есть ЖД
+	exit - выйти из управления
+	sfc /scannow /offbootdir=C:\ /offwindir=E:\Windows - запустить востановление, первый диск с загрузчиком, второй диск там где ОС.
+dism /Online /Cleanup-Image /CheckHealth - диагностика на основе отчётов ОС.
+dism /Online /Cleanup-Image /ScanHealth - проверка на ноличие повреждённых элементов.
+dism /Online /Cleanup-Image /RestoreHealth - проверка на ноличие повреждённых элементов и починка оных.
+
+CHKDSK | chkdis c: /f- проверяет жд
+fsutil fsinfo volumeinfo c: - отображает сведения о системном диске и задействованных томах
+fsutil volume allocationreport c: - позволяет узнать, сколько места занимают служебные файлы
+
+Mrt - позволяет найти зловреды на ПК
+
+wbasdmin - позволяет создать копии системы, удалить, востановить и тд.
+recover - позволяет востановить повреждённые файлы 
+certutil -v -hashfile FILENAME MD5 - проверяет хэш файла 
+cipher/с:DIR - позволяет затереть все пусные сектора ЖД
+shutdown /i -принудительное выключение ПК 
+netstat - позволяет проверить сетевые подключения 
+ipconfig /flushdns - позволяет скинуть кэш ДНС 
+Msconfig- при запуске в диагностическом режиме, дрова не от майков отключаются, если есть проблема в дровах таким образом её можно выявить
+
+Сетевые операции через NetSh
+Изменение име интерфейса
+netsh interface set interface name="Нынешнее название" newname="Новое название"
+
+Отключить интерфейс или включить
+netsh interface set interface name="Нынешнее название" admin = DISABLED/ENABLED
+
+Информация о интерфейсе
+netsh interface show interfa
+
+информация о подключении через ip4
+netsh interface ipv4 show config
+
+выбрать DHCP
+netsh interface ipv4 set addres name="Имя интерфейса" source=dhcp
+
+задать ip в ручную 
+netsh interface ipv4 add address name = "Имя интерфейса" address=192.168.0.5 mask=255.255.255.0
+
+изменить флюз 
+netsh interface ipv4 add address name = "Имя интерфейса" gateway=192.168.0.1 gwmetric=1
+
+изменить dns
+netsh interface ipv4 add dnsserver name = "Имя интерфейса" address=8.8.8.8 index=1
